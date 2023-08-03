@@ -1,0 +1,22 @@
+<%= form_with(model: qrcode) do |form| %>
+  <% if qrcode.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(qrcode.errors.count, "error") %> prohibited this qrcode from being saved:</h2>
+
+      <ul>
+        <% qrcode.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :url, style: "display: block" %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
